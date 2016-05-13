@@ -132,6 +132,16 @@ class AwisApi(object):
 
         return self.request(params)
 
+    def category_browse(self, path, Descriptions=False, ResponseGroup="Categories"):
+        params = {
+            "Action": "CategoryBrowse",
+            "ResponseGroup": ResponseGroup,
+            "Path": quote(path),
+            "Descriptions": str(Descriptions)
+        }
+
+        return self.request(params)
+
     def url_info(self, urls, *response_groups, **kwargs):
         params = {"Action": "UrlInfo"}
         if not isinstance(urls, (list, tuple)):
